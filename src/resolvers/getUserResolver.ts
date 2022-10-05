@@ -37,11 +37,7 @@ export const getUserResolver = {
           return {
             status: { code: 200 },
             node: {
-              user: {
-                name: existingUser?.name,
-                email: existingUser?.email,
-                _id: existingUser?._id,
-              },
+              user: existingUser,
             },
           };
         }
