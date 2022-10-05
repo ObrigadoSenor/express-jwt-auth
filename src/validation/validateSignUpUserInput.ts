@@ -20,7 +20,6 @@ export const validateSignUpUserInput = ({
   isValid: boolean;
 } => {
   const errors: AuthValidateSignUpUserInputType = {};
-  console.log("Validation");
   if (Validator.isEmpty(name)) {
     errors.name = "Name field is required";
   }
