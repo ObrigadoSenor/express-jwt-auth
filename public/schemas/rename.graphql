@@ -1,0 +1,27 @@
+# import User from "user.graphql"
+# import Status from "status.graphql"
+
+type RenameStatus {
+  # Rename status from mongo
+  n: Int
+  ok: Int
+  deletedCount: Int
+}
+
+#RENAME
+type RenameUserNode {
+  # Rename user
+  user: User
+  errors: String
+  renameStatus: RenameStatus
+}
+
+type RenameUserReturn {
+  # Rename user returns
+  node: RenameUserNode
+  status: Status
+}
+
+type Mutation {
+  renameUser(name: String!, _id: String!): RenameUserReturn
+}

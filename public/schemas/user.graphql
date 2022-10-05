@@ -1,0 +1,14 @@
+type User {
+  # User
+  email: String
+  name: String
+  _id: String
+}
+
+type UserErrors {
+  # User errors
+  email: String
+  name: String
+  password: String
+  confirmPassword: String
+}

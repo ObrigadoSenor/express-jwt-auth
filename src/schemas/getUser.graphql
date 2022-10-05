@@ -1,0 +1,19 @@
+# import User, UserErrors from "user.graphql"
+# import Status from "status.graphql"
+
+#DELETE
+type GetUserNode {
+  # Delete user
+  user: User
+  errors: UserErrors
+}
+
+type GetUserReturn {
+  # Delete user returns
+  node: GetUserNode
+  status: Status
+}
+
+type Query {
+  getUser(email: String, name: String): GetUserReturn
+}

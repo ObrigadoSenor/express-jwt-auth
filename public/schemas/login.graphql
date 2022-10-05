@@ -1,0 +1,19 @@
+# import User, UserErrors from "user.graphql"
+# import Status from "status.graphql"
+
+type LoginUserNode {
+  # Login user
+  user: User
+  errors: UserErrors
+  token: String
+}
+
+type LoginUserReturn {
+  # Login user returnss
+  node: LoginUserNode
+  status: Status
+}
+
+type Mutation {
+  loginUser(email: String!, password: String!): LoginUserReturn
+}

@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "env": {},
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "public/index.js"
+        },
+        {
+            "src": "/",
+            "dest": "public/ui/index.html"
+        },
+        {
+            "src": "/(.+)",
+            "dest": "public/ui/$1"
+        }
+    ]
+}

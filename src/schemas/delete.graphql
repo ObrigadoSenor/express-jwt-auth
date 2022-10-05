@@ -1,0 +1,27 @@
+# import User from "user.graphql"
+# import Status from "status.graphql"
+
+type DeleteStatus {
+  # Delete status from mongo
+  n: Int
+  ok: Int
+  deletedCount: Int
+}
+
+#DELETE
+type DeleteUserNode {
+  # Delete user
+  user: User
+  errors: String
+  deleteStatus: DeleteStatus
+}
+
+type DeleteUserReturn {
+  # Delete user returns
+  node: DeleteUserNode
+  status: Status
+}
+
+type Mutation {
+  deleteUser(email: String!): DeleteUserReturn
+}

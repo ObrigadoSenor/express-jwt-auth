@@ -1,0 +1,6 @@
+type Status {
+  # Status from mongo
+  code: Int!
+  message: String
+  error: String
+}

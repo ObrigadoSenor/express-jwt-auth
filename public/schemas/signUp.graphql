@@ -1,0 +1,23 @@
+# import User, UserErrors from "user.graphql"
+# import Status from "status.graphql"
+
+type SignUpUserNode {
+  # SignUp user
+  user: User
+  errors: UserErrors
+}
+
+type SignUpUserReturn {
+  # SignUp user returns
+  node: SignUpUserNode
+  status: Status
+}
+
+type Mutation {
+  signUpUser(
+    email: String!
+    name: String!
+    password: String!
+    confirmPassword: String!
+  ): SignUpUserReturn
+}
