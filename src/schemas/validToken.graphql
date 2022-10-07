@@ -1,0 +1,24 @@
+# import User, UserErrors from "user.graphql"
+# import Status from "status.graphql"
+
+type TokenErrors {
+  # User errors
+  token: String
+}
+
+#DELETE
+type GetValidTokenNode {
+  # Delete user
+  expired: Boolean
+  errors: TokenErrors
+}
+
+type GetValidTokenReturn {
+  # Delete user returns
+  node: GetValidTokenNode
+  status: Status
+}
+
+type Query {
+  validToken(token: String): GetValidTokenReturn
+}

@@ -31,10 +31,14 @@ const getVerifiedToken = ({ token }: VerifyTokenType): VerifyTokenReturnType =>
   jwt.verify(token, "secret") as VerifyTokenReturnType;
 
 export const isTokenExpired = ({ token }: VerifyTokenType) => {
-  if (!token) return true;
+  if (!token || !isJWTToken(token)) return true;
   const { exp } = getVerifiedToken({ token });
+
   if (!exp) return true;
-  const millisecondExp = exp * 1000;
+  const millisecondExp = exp * 360000;
 
   return Date.now() > millisecondExp;
 };
+
+const isJWTToken = (token: string) =>
+  jwt.decode(token, { complete: true }) !== null;

@@ -1,17 +1,18 @@
-import { signUpUserResolver as SignUpMutation } from "./signUpUserResolver";
-import { loginUserResolver as LoginMutation } from "./loginUserResolver";
-import { deleteUserResolver as DeleteMutation } from "./deleteUserResolver";
-import { renameUserResolver as RenameMutation } from "./renameUserResolver";
-import { changePasswordUserResolver as ChangePasswordMutation } from "./changePasswordUserResolver";
-import { getUserResolver as GetUserQuery } from "./getUserResolver";
+import { signUpUserResolver } from "./signUpUserResolver";
+import { loginUserResolver } from "./loginUserResolver";
+import { deleteUserResolver } from "./deleteUserResolver";
+import { renameUserResolver } from "./renameUserResolver";
+import { changePasswordUserResolver } from "./changePasswordUserResolver";
+import { getUserResolver } from "./getUserResolver";
+import { validTokenResolver } from "./validToken";
 
 export default {
-  Query: { ...GetUserQuery },
+  Query: { ...getUserResolver, ...validTokenResolver },
   Mutation: {
-    ...SignUpMutation,
-    ...LoginMutation,
-    ...DeleteMutation,
-    ...RenameMutation,
-    ...ChangePasswordMutation,
+    ...signUpUserResolver,
+    ...loginUserResolver,
+    ...deleteUserResolver,
+    ...renameUserResolver,
+    ...changePasswordUserResolver,
   },
 };
